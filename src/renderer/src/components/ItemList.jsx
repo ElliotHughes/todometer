@@ -52,7 +52,7 @@ function ItemList() {
 				{completed.length > 0 && (
 					<AccordionItem>
 						<AccordionButton className={styles.toggle}>
-							<img src={arrow} alt="Completed Toggle" /> <span>Completed</span>
+							<img src={arrow} alt="Completed Toggle" /> <span>已完成</span>
 						</AccordionButton>
 						<AccordionPanel className={styles.panel}>
 							{completed &&
@@ -71,7 +71,7 @@ function ItemList() {
 							dispatch({ type: "RESET_ALL" });
 						}}
 					>
-						reset progress
+						清空全部任务
 					</button>
 				</div>
 			)}

@@ -37,6 +37,7 @@ function createWindow() {
 		webPreferences: {
 			preload: path.join(app.getAppPath(), "dist/preload/index.cjs"),
 		},
+		autoHideMenuBar: true,
 	});
 
 	mainWindow.loadURL(

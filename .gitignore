@@ -9,6 +9,7 @@
 # production
 /build
 dist
+release-builds
 
 # cache
 .electron-vendors.cache.json
