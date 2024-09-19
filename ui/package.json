@@ -13,7 +13,7 @@
 		]
   },
   "scripts": {
-		"build": "cd ./src && vite build"
+		"build": "cd ./renderer && vite build"
 	},
   "dependencies": {
 		"@reach/accordion": "^0.8.0",
