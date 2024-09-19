@@ -1,4 +1,3 @@
-import { chrome } from "../../.electron-vendors.cache.json";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { join } from "path";
@@ -23,7 +22,7 @@ export default defineConfig({
     },
   },
   build: {
-    target: `chrome${chrome}`,
+    target: `chrome108`,
     sourcemap: "inline",
     outDir: "../../dist/renderer",
     emptyOutDir: true,
