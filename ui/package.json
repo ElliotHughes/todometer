@@ -1,0 +1,38 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "main": "dist/main/index.cjs",
+  "license": "MIT",
+  "build": {
+		"files": [
+			"node_modules/**/*",
+			"dist/main/**",
+			"dist/preload/**",
+			"dist/renderer/**",
+			"package.json"
+		]
+  },
+  "scripts": {
+		"build": "cd ./src && vite build"
+	},
+  "dependencies": {
+		"@reach/accordion": "^0.8.0",
+		"date-fns": "^2.9.0",
+		"prop-types": "^15.8.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"@testing-library/jest-dom": "^5.16.5",
+		"@testing-library/react": "^13.4.0",
+		"@vitejs/plugin-react": "^2.1.0",
+		"cross-env": "^7.0.3",
+		"eslint": "^8.26.0",
+		"eslint-plugin-react": "^7.31.10",
+		"jsdom": "^20.0.1",
+		"postcss": "^8.4.21",
+		"postcss-nested": "^6.0.0",
+		"vite": "^3.1.8",
+		"vitest": "^0.24.3"
+	}
+}

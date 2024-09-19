@@ -17,7 +17,7 @@ function createWebWatchServer() {
 	const server = createServer({
 		mode,
 		customLogger: createLogger("info", { prefix: `[web]` }),
-		configFile: "src/renderer/vite.config.js",
+		configFile: "ui/renderer/vite.config.js",
 	});
 
 	return server;
@@ -30,7 +30,7 @@ function createWebWatchServer() {
 function createPreloadWatcher(viteServer) {
 	const watcher = build({
 		mode,
-		configFile: "src/preload/vite.config.js",
+		configFile: "ui/preload/vite.config.js",
 		build: {
 			/**
 			 * Set to {} to enable rollup watcher

@@ -40,6 +40,11 @@ function createWindow() {
 		autoHideMenuBar: true,
 	});
 
+	// mainWindow.loadURL(
+	// 	isDev
+	// 		? "http://localhost:5173"
+	// 		: new URL("../dist/renderer/index.html", "file://" + __dirname).toString()
+	// );
 	mainWindow.loadURL(
 		isDev
 			? "http://localhost:5173"
@@ -77,6 +82,7 @@ function menuSetup() {
 				{
 					/* For debugging */
 					label: "Dev tools",
+					accelerator: "CommandOrControl+Shift+I",
 					click: () => {
 						mainWindow.webContents.openDevTools();
 					},
