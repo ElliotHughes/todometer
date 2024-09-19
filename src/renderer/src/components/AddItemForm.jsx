@@ -21,36 +21,45 @@ function AddItemForm() {
 		inputRef.current.focus();
 	}
 
-	// useEffect(() => {
-	//   const handlePaste = (event) => {
-	// 	const items = (event.clipboardData || event.originalEvent.clipboardData).items;
-	// 	for (let i = 0; i < items.length; i++) {
-	// 	  const item = items[i];
-	// 	  if (item.kind === 'string' && item.type === 'text/plain') {
-	// 		item.getAsString((text) => {
-	// 			const newItem = {
-	// 				text: text,
-	// 				key: Date.now(),
-	// 				status: "pending",
-	// 			};
-	// 			if (newItem.text.trim()) {
-	// 				dispatch({ type: "ADD_ITEM", item: newItem });
-	// 			}
-	// 			inputRef.current.value = "";
-	// 		});
-	// 		break;
-	// 	  }
-	// 	}
-	//   };
+	useEffect(() => {
+	  const handlePaste = (event) => {
+		const items = (event.clipboardData || event.originalEvent.clipboardData).items;
+		for (let i = 0; i < items.length; i++) {
+		  const item = items[i];
+		  if (item.kind === 'string' && item.type === 'text/plain') {
+			item.getAsString((text) => {
+				const newItem = {
+					text: text,
+					key: Date.now(),
+					status: "pending",
+				};
+				if (newItem.text.trim()) {
+					dispatch({ type: "ADD_ITEM", item: newItem });
+					window.alert("success")
+				}
+				inputRef.current.value = "";
+			});
+			break;
+		  }
+		}
+	  };
+
+	  const handleFocus = () => {
+		document.removeEventListener('paste', handlePaste);
+	  };
   
-	//   // 添加事件监听器
-	//   document.addEventListener('paste', handlePaste);
+	  const handleBlur = () => {
+		document.addEventListener('paste', handlePaste);
+	  };
   
-	//   // 清理函数，在组件卸载时移除事件监听器
-	//   return () => {
-	// 	document.removeEventListener('paste', handlePaste);
-	//   };
-	// }, []);
+	  inputRef.current.addEventListener('focus', handleFocus);
+	  inputRef.current.addEventListener('blur', handleBlur);
+  
+	  return () => {
+		inputRef.current.removeEventListener('focus', handleFocus);
+		inputRef.current.removeEventListener('blur', handleBlur);
+	  };
+	}, []);
 
 	return (
 		<form className={styles.form} onSubmit={addItem}>
